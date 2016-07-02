@@ -5,8 +5,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width">
     <title>Oil and gas worker deaths chart</title>
-    <script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <style>
+    .chart {
+        font-family: Arial, sans-serif;
+    }
+    
     table#profile {
         width: 58%;
         table-layout: fixed;
@@ -26,7 +32,7 @@
     }
     
     td.struck {
-        background-color: rgba(72, 99, 160, .7);
+        background-color: #cccccc;
     }
     
     td.crush {
@@ -114,6 +120,10 @@
             margin-left: 10px;
         }
     }
+    
+    td.cell-highlight {
+        background: rgba(175,22,40,.8);
+    }
     </style>
 </head>
 
@@ -122,7 +132,7 @@
     <table id="profile">
         <tr>
             <td></td>
-            <td class="fall">
+            <td class="cell fall">
                 <div class="table-content">
                     <h3><em>Name unknown</em></h3>
                     <p><strong>Date: </strong> 2/8/2001</p>
@@ -137,7 +147,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=303675565">OSHA report</a></p>
                 </div>
             </td>
-            <td class="crush">
+            <td class="cell crush">
                 <div>
                     <h3>Name2</h3><strong>Date: </strong>2/8/2001
                     <br><strong>Cause of death: </strong>Fall
@@ -146,45 +156,45 @@
             </td>
         </tr>
         <tr>
-            <td class="crush">
+            <td class="cell crush">
                 <div>
                     <h3>Name3</h3><strong>Date: </strong>2/8/2001
                     <br><strong>Cause of death: </strong>Fall
                     <br>The worker, a welder, was standing on a ladder while working on a mud pump when a pressure-release valve opened up, blasting him. The worker was knocked off the ladder and fell to the ground, killing him. An OSHA report lists his cause of death as, "apparent head injuries and concussion."
                 </div>
             </td>
-            <td class="fall">
+            <td class="cell fall">
                 <div>
                     <h3>Name4</h3><strong>Date: </strong>2/8/2001
                     <br><strong>Cause of death: </strong>Fall
                     <br>The worker, a welder, was standing on a ladder while working on a mud pump when a pressure-release valve opened up, blasting him. The worker was knocked off the ladder and fell to the ground, killing him. An OSHA report lists his cause of death as, "apparent head injuries and concussion."
                 </div>
             </td>
-            <td class="fall">
+            <td class="cell fall">
             </td>
-            <td class="fall">
+            <td class="cell fall">
             </td>
-            <td class="fall">
+            <td class="cell fall">
             </td>
-            <td class="fall">
+            <td class="cell fall">
             </td>
-            <td class="fall">
+            <td class="cell fall">
             </td>
-            <td class="fall">
+            <td class="cell fall">
             </td>
-            <td class="fall">
+            <td class="cell fall">
             </td>
-            <td class="fall">
+            <td class="cell fall">
             </td>
-            <td class="fall">
+            <td class="cell fall">
             </td>
-            <td class="fall">
+            <td class="cell fall">
             </td>
-            <td class="fall">
+            <td class="cell fall">
             </td>
-            <td class="fall">
+            <td class="cell fall">
             </td>
-            <td class="fall">
+            <td class="cell fall">
             </td>
         </tr>
         <tr class="date">
@@ -207,6 +217,8 @@
     </table> -->
     <!-- Veritcal orientation -->
     <hr>
+    <h2 class="chart">Oil and gas worker fatalities</h2>
+    <p class="chart">Since 2001 44 oil and gas workers have died on the job site chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter. <em>Click chart segments for details about the workers.</em></p>
     <table id="profile">
         <tr>
             <th></th>
@@ -214,7 +226,7 @@
         </tr>
         <tr>
             <td class="date">'01</td>
-            <td class="fall">
+            <td class="cell fall">
                 <div class="table-content">
                     <h3><em>Name unavailable</em></h3>
                     <p><strong>Age: </strong><em>unavailable</em></p>
@@ -230,7 +242,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=303675565">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="struck">
+            <td class="cell struck">
                 <div class="table-content">
                     <h3>Martin Mireles</h3>
                     <p><strong>Age: </strong>48</p>
@@ -246,7 +258,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=303677967&id=303677884">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="struck">
+            <td class="cell struck">
                 <div class="table-content">
                     <h3>Rex McCarley</h3>
                     <p><strong>Age: </strong>44</p>
@@ -265,7 +277,7 @@
         </tr>
         <tr>
             <td class="date">'02</td>
-            <td class="crush">
+            <td class="cell crush">
                 <div class="table-content">
                     <h3>Michael Blanchfield</h3>
                     <p><strong>Age: </strong>41</p>
@@ -281,7 +293,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=304981178&id=304981160&id=304981186">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="fall">
+            <td class="cell fall">
                 <div class="table-content">
                     <h3>Marty Vigil</h3>
                     <p><strong>Age: </strong>32</p>
@@ -300,7 +312,7 @@
         </tr>
         <tr>
             <td class="date">'03</td>
-            <td class="explosion">
+            <td class="cell explosion">
                 <div class="table-content">
                     <h3>Raul Barron</h3>
                     <p><strong>Age: </strong>44</p>
@@ -316,7 +328,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=306368671&id=306372442&id=306372459">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="collapse">
+            <td class="cell collapse">
                 <div class="table-content">
                     <h3>Stephen Amen</h3>
                     <p><strong>Age: </strong>44</p>
@@ -335,7 +347,7 @@
         </tr>
         <tr>
             <td class="date">'04</td>
-            <td class="vehicle">
+            <td class="cell vehicle">
                 <div class="table-content">
                     <h3>Kenneth Rens</h3>
                     <p><strong>Age: </strong>57</p>
@@ -351,7 +363,7 @@
                     <p><em>no OSHA inspection</em></p>
                 </div>
             </td>
-            <td class="collapse">
+            <td class="cell collapse">
                 <div class="table-content">
                     <h3>Scott Nelson</h3>
                     <p><strong>Age: </strong>26</p>
@@ -367,7 +379,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=307522227&id=307522235">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="collapse">
+            <td class="cell collapse">
                 <div class="table-content">
                     <h3>Randall Taylor</h3>
                     <p><strong>Age: </strong>62</p>
@@ -386,7 +398,7 @@
         </tr>
         <tr>
             <td class="date">'05</td>
-            <td class="fall">
+            <td class="cell fall">
                 <div class="table-content">
                     <h3>Larry Hill</h3>
                     <p><strong>Age: </strong>42</p>
@@ -402,7 +414,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=309000990">OSHA report</a></p>
                 </div>
             </td>
-            <td class="electrocution">
+            <td class="cell electrocution">
                 <div class="table-content">
                     <h3>Zac Mitchek</h3>
                     <p><strong>Age: </strong>42</p>
@@ -421,7 +433,7 @@
         </tr>
         <tr>
             <td class="date">'06</td>
-            <td class="asphyxiation">
+            <td class="cell asphyxiation">
                 <div class="table-content">
                     <h3>Joshua Arvidson</h3>
                     <p><strong>Age: </strong>24</p>
@@ -437,7 +449,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=309002335">OSHA report</a></p>
                 </div>
             </td>
-            <td class="homicide">
+            <td class="cell homicide">
                 <div class="table-content">
                     <h3>Paul Graves</h3>
                     <p><strong>Age: </strong>40</p>
@@ -453,7 +465,7 @@
                     <p><em>no OSHA inspection</em></p>
                 </div>
             </td>
-            <td class="crush">
+            <td class="cell crush">
                 <div class="table-content">
                     <h3>Wesley M. Rodrigues</h3>
                     <p><strong>Age: </strong>30</p>
@@ -469,7 +481,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=309197077&id=309197069">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="vehicle">
+            <td class="cell vehicle">
                 <div class="table-content">
                     <h3>Philip Smith</h3>
                     <p><strong>Age: </strong>44</p>
@@ -485,7 +497,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=310463310">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="struck">
+            <td class="cell struck">
                 <div class="table-content">
                     <h3>Jacob Farmer</h3>
                     <p><strong>Age: </strong>19</p>
@@ -501,7 +513,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=310463435&id=310463401&id=310463427">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="explosion">
+            <td class="cell explosion">
                 <div class="table-content">
                     <h3>Ricky Erb</h3>
                     <p><strong>Age: </strong>19</p>
@@ -520,7 +532,7 @@
         </tr>
         <tr>
             <td class="date">'07</td>
-            <td class="vehicle">
+            <td class="cell vehicle">
                 <div class="table-content">
                     <h3><em>Name unavailable</em></h3>
                     <p><strong>Age: </strong><em>unavailable</em></p>
@@ -536,7 +548,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=310588405">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="struck">
+            <td class="cell struck">
                 <div class="table-content">
                     <h3>Joseph Buchanan Jr.</h3>
                     <p><strong>Age: </strong>34</p>
@@ -552,7 +564,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=310468137&id=310468111&id=310468145&id=310468277&id=310468152&id=310468269">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="explosion">
+            <td class="cell explosion">
                 <div class="table-content">
                     <h3>Reyes Garcia</h3>
                     <p><strong>Age: </strong>31</p>
@@ -568,7 +580,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=310468103">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="struck">
+            <td class="cell struck">
                 <div class="table-content">
                     <h3><em>Name unavailable</em></h3>
                     <p><strong>Age: </strong><em>unavailable</em></p>
@@ -584,7 +596,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=310469044&id=310469010&id=310468996&id=310469002&id=310469028">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="struck">
+            <td class="cell struck">
                 <div class="table-content">
                     <h3><em>Name unavailable</em></h3>
                     <p><strong>Age: </strong><em>unavailable</em></p>
@@ -603,7 +615,7 @@
         </tr>
         <tr>
             <td class="date">'08</td>
-            <td class="vehicle">
+            <td class="cell vehicle">
                 <div class="table-content">
                     <h3><em>Name unavailable</em></h3>
                     <p><strong>Age: </strong>45</p>
@@ -619,7 +631,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=310595103">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="crush">
+            <td class="cell crush">
                 <div class="table-content">
                     <h3>Christopher Clark</h3>
                     <p><strong>Age: </strong>26</p>
@@ -635,7 +647,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=310472410">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="vehicle">
+            <td class="cell vehicle">
                 <div class="table-content">
                     <h3><em>Name unavailable</em></h3>
                     <p><strong>Age: </strong><em>unavailable</em></p>
@@ -651,7 +663,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=311903090">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="electrocution">
+            <td class="cell electrocution">
                 <div class="table-content">
                     <h3>Javier Perez</h3>
                     <p><strong>Age: </strong><em>unavailable</em></p>
@@ -667,7 +679,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=311904536&id=311904528&id=311904494">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="vehicle">
+            <td class="cell vehicle">
                 <div class="table-content">
                     <h3>Steven Raymond Bartlett</h3>
                     <p><strong>Age: </strong>50</p>
@@ -683,7 +695,7 @@
                     <p><em>no OSHA inspections</em></p>
                 </div>
             </td>
-            <td class="struck">
+            <td class="cell struck">
                 <div class="table-content">
                     <h3>Talliesin Dodd Hayden</h3>
                     <p><strong>Age: </strong>38</p>
@@ -699,7 +711,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=311908008&id=311907836">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="vehicle">
+            <td class="cell vehicle">
                 <div class="table-content">
                     <h3>Michael Foraker</h3>
                     <p><strong>Age: </strong>51</p>
@@ -715,7 +727,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=311908081">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="struck">
+            <td class="cell struck">
                 <div class="table-content">
                     <h3>Jeffrey Byer</h3>
                     <p><strong>Age: </strong>40</p>
@@ -743,7 +755,7 @@
         </tr>
         <tr>
             <td class="date">'12</td>
-            <td class="vehicle">
+            <td class="cell vehicle">
                 <div class="table-content">
                     <h3><em>Name unavailable</em></h3>
                     <p><strong>Age: </strong><em>unavailable</em></p>
@@ -759,7 +771,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=111310.015">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="explosion">
+            <td class="cell explosion">
                 <div class="table-content">
                     <h3>Randy Mathews</h3>
                     <p><strong>Age: </strong>42</p>
@@ -775,7 +787,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=530858.015&id=743801.015&id=531358.015&id=521219.015&id=531179.015&id=531038.015">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="fall">
+            <td class="cell fall">
                 <div class="table-content">
                     <h3>Adleberto Pena</h3>
                     <p><strong>Age: </strong>44</p>
@@ -791,7 +803,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=532238.015">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="explosion">
+            <td class="cell explosion">
                 <div class="table-content">
                     <h3>Brian John Wallace</h3>
                     <p><strong>Age: </strong>60</p>
@@ -810,7 +822,7 @@
         </tr>
         <tr>
             <td class="date">'13</td>
-            <td class="explosion">
+            <td class="cell explosion">
                 <div class="table-content">
                     <h3>Jonathan Herod</h3>
                     <p><strong>Age: </strong>49</p>
@@ -829,7 +841,7 @@
         </tr>
         <tr>
             <td class="date">'14</td>
-            <td class="struck">
+            <td class="cell struck">
                 <div class="table-content">
                     <h3>Adam Kujawa</h3>
                     <p><strong>Age: </strong>28</p>
@@ -845,7 +857,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=955793.015&id=955711.015&id=955800.015">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="gauging">
+            <td class="cell gauging">
                 <div class="table-content">
                     <h3>Joe Ray Sherman</h3>
                     <p><strong>Age: </strong>51</p>
@@ -861,7 +873,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=962598.015&id=962422.015&id=962452.015&id=962582.015&id=962590.015&id=962357.015&id=962611.015&id=962357">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="gauging">
+            <td class="cell gauging">
                 <div class="table-content">
                     <h3>John McNulty</h3>
                     <p><strong>Age: </strong>57</p>
@@ -877,7 +889,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=984593.015&id=982339.015&id=984608.015">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="gauging">
+            <td class="cell gauging">
                 <div class="table-content">
                     <h3>Jim Freemyer</h3>
                     <p><strong>Age: </strong>59</p>
@@ -893,7 +905,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=985693.015&id=985869.015">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="vehicle">
+            <td class="cell vehicle">
                 <div class="table-content">
                     <h3>Christopher Farrow</h3>
                     <p><strong>Age: </strong>48</p>
@@ -909,7 +921,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=1000955.015">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="struck">
+            <td class="cell struck">
                 <div class="table-content">
                     <h3>Shane Hill</h3>
                     <p><strong>Age: </strong>34</p>
@@ -925,7 +937,7 @@
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=1005350.015&id=1005719.015&id=1005719">OSHA inspection</a></p>
                 </div>
             </td>
-            <td class="explosion">
+            <td class="cell explosion">
                 <div class="table-content">
                     <h3>Matthew Smith</h3>
                     <p><strong>Age: </strong>36</p>
@@ -944,7 +956,7 @@
         </tr>
         <tr>
             <td class="date">'15</td>
-            <td class="explosion">
+            <td class="cell explosion">
                 <div class="table-content">
                     <h3>Reuben Camacho</h3>
                     <p><strong>Age: </strong>26</p>
@@ -962,6 +974,21 @@
             </td>
         </tr>
     </table>
+    <ul id="legend">
+        <li class="click-type" id="legend-struck" data-type="struck">Struck by equipment (11)</li>
+        <li class="click-type" id="legend-explosion" data-type="explosion">Explosion/fire (8)</li>
+        <li class="click-type" id="legend-vehicle" data-type="vehicle">Vehicle accident (8)</li>
+        <li class="click-type" id="legend-fall" data-type="fall">Fall (4)</li>
+        <li class="click-type" id="legend-crush" data-type="crush">Crushed between equipment &bull; 3</li>
+        <li class="click-type" id="legend-collapse" data-type="collapse">Rig collapse &bull; 3</li>
+        <li class="click-type" id="legend-gauging" data-type="gauging">Gauging (3)</li>
+        <li class="click-type" id="legend-electrocution" data-type="electrocution">Electrocution (2)</li>
+        <li class="click-type" id="legend-asphyxiation" data-type="asphyxiation">Asphyxiation (1)</li>
+        <li  class="click-type" id="legend-homicide" data-type="homicide">Homicide (1)</li>
+    </ul>
+
+<!--     <div class="click-type" id="legend-crush" data-type="crush">Crush</div>
+    <div  class="click-type" id="legend-homicide" data-type="homicide">Homicide</div> -->
     <div id="container"></div>
     <script>
     var table = document.getElementById("profile");
@@ -974,8 +1001,31 @@
         }
     };
 
+    // Loop through and get the profiles
     function tableText(tableCell) {
         document.getElementById("container").innerHTML = tableCell.innerHTML;
+    };
+
+    // Highlight table cells related to fatality categories on legend click
+    var classname = document.getElementsByClassName("click-type");
+
+    var typeClick = function() {
+        var elems = document.querySelectorAll(".cell");
+
+        [].forEach.call(elems, function(el) {
+            el.classList.remove("cell-highlight");
+        });
+        var type = this.getAttribute("data-type");
+        var cells = document.getElementsByClassName(type),
+            i = cells.length;
+        console.log(cells);
+        while (i--) {
+            cells[i].classList.add("cell-highlight");
+        }
+    };
+    console.log(classname);
+    for (var i = 0; i < classname.length; i++) {
+        classname[i].addEventListener('click', typeClick, false);
     }
     </script>
 </body>
