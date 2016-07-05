@@ -9,62 +9,172 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <style>
+
     .chart {
         font-family: Arial, sans-serif;
     }
     
     table#profile {
-        width: 58%;
+        max-width: 58%;
         table-layout: fixed;
         float: left;
     }
     
-    table#profile td * {
-        text-indent: -10000px;
+    /* table#profile td *{
+        /* text-indent: -10000px; 
         height: 25px;
-        width: 10%;
+        width: 25px;
         white-space: nowrap;
         cursor: pointer;
+    } */
+
+    table#profile td > div {
+        display: none;
     }
     
     td.fall {
         background-color: #cccccc;
+        cursor: pointer;
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
     }
+
+    td.fall:hover {
+        background: rgba(22,117,175,.8);
+    }
+
+    /* td.fall > img {
+        display: none;
+    }
+
+    td.fall:hover > img {
+        display: block;
+    } */
+
+    img#chart-figure {
+        height: 15px;
+        width: 15px;
+        opacity: 0.2;
+    }
+
+    /* p.in-cell {
+        color: red;
+        font-size: 12px;
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        text-align: center;
+        margin: 0px;
+    } */
+
+
     
     td.struck {
         background-color: #cccccc;
+        cursor: pointer;
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+    }
+
+    td.struck:hover {
+        background: rgba(22,117,175,.8);
     }
     
     td.crush {
         background-color: #cccccc;
+        cursor: pointer;
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+    }
+
+    td.crush:hover {
+        background: rgba(22,117,175,.8);
     }
     
     td.explosion {
         background-color: #cccccc;
+        cursor: pointer;
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+    }
+
+    td.explosion:hover {
+        background: rgba(22,117,175,.8);
     }
     
     td.collapse {
         background-color: #cccccc;
+        cursor: pointer;
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+    }
+
+    td.collapse:hover {
+        background: rgba(22,117,175,.8);
     }
     
     td.vehicle {
         background-color: #cccccc;
+        cursor: pointer;
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+    }
+
+    td.vehicle:hover {
+        background: rgba(22,117,175,.8);
     }
     
     td.electrocution {
         background-color: #cccccc;
+        cursor: pointer;
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+    }
+
+    td.electrocution:hover {
+        background: rgba(22,117,175,.8);
     }
     
     td.asphyxiation {
         background-color: #cccccc;
+        cursor: pointer;
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+    }
+
+    td.asphyxiation:hover {
+        background: rgba(22,117,175,.8);
     }
     
     td.homicide {
         background-color: #cccccc;
+        cursor: pointer;
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+    }
+
+    td.homicide:hover {
+        background: rgba(22,117,175,.8);
     }
     
     td.gauging {
         background-color: #cccccc;
+        cursor: pointer;
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+    }
+
+    td.gauging:hover {
+        background: rgba(22,117,175,.8);
     }
     
     table#profile tr {
@@ -99,6 +209,8 @@
         font-family: Arial, sans-serif;
         font-size: 13px;
         color: #333;
+        height: 25px;
+        width: 40px;
     }
     
     table#profile th {
@@ -222,11 +334,11 @@
     <table id="profile">
         <tr>
             <th></th>
-            <th>Fatalities</th>
+            <th colspan=8>Fatalities</th>
         </tr>
         <tr>
             <td class="date">'01</td>
-            <td class="cell fall">
+            <td class="cell fall" title="Name unavailable" align="center">
                 <div class="table-content">
                     <h3><em>Name unavailable</em></h3>
                     <p><strong>Age: </strong><em>unavailable</em></p>
@@ -241,8 +353,9 @@
                     <p><strong>Final fine: </strong>$0</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=303675565">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell struck">
+            <td class="cell struck" title="Martin Mireles" align="center">
                 <div class="table-content">
                     <h3>Martin Mireles</h3>
                     <p><strong>Age: </strong>48</p>
@@ -257,8 +370,9 @@
                     <p><strong>Final fine: </strong>$4,750</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=303677967&id=303677884">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell struck">
+            <td class="cell struck" title="Rex McCarley" align="center">
                 <div class="table-content">
                     <h3>Rex McCarley</h3>
                     <p><strong>Age: </strong>44</p>
@@ -273,11 +387,12 @@
                     <p><strong>Final fine: </strong>$0</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=303679336&id=303679344&id=303679328&id=303679351">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
         </tr>
         <tr>
             <td class="date">'02</td>
-            <td class="cell crush">
+            <td class="cell crush" title="Michael Blanchfield" align="center">
                 <div class="table-content">
                     <h3>Michael Blanchfield</h3>
                     <p><strong>Age: </strong>41</p>
@@ -292,8 +407,9 @@
                     <p><strong>Final fine: </strong>$4,386</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=304981178&id=304981160&id=304981186">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell fall">
+            <td class="cell fall" title="Marty Vigil" align="center">
                 <div class="table-content">
                     <h3>Marty Vigil</h3>
                     <p><strong>Age: </strong>32</p>
@@ -308,11 +424,12 @@
                     <p><strong>Final fine: </strong>$4,313</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=304982663&id=304982648">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
         </tr>
         <tr>
             <td class="date">'03</td>
-            <td class="cell explosion">
+            <td class="cell explosion" title="Raul Barron" align="center">
                 <div class="table-content">
                     <h3>Raul Barron</h3>
                     <p><strong>Age: </strong>44</p>
@@ -327,8 +444,9 @@
                     <p><strong>Final fine: </strong>$20,900</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=306368671&id=306372442&id=306372459">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell collapse">
+            <td class="cell collapse" title="Stephen Amen" align="center">
                 <div class="table-content">
                     <h3>Stephen Amen</h3>
                     <p><strong>Age: </strong>44</p>
@@ -343,11 +461,12 @@
                     <p><strong>Final fine: </strong>$10,795</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=306370172&id=306369679&id=306369562">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
         </tr>
         <tr>
             <td class="date">'04</td>
-            <td class="cell vehicle">
+            <td class="cell vehicle" title="Kenneth Rens" align="center">
                 <div class="table-content">
                     <h3>Kenneth Rens</h3>
                     <p><strong>Age: </strong>57</p>
@@ -362,8 +481,9 @@
                     <p><strong>Final fine: </strong>$0</p>
                     <p><em>no OSHA inspection</em></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell collapse">
+            <td class="cell collapse" title="Scott Nelson" align="center">
                 <div class="table-content">
                     <h3>Scott Nelson</h3>
                     <p><strong>Age: </strong>26</p>
@@ -378,8 +498,9 @@
                     <p><strong>Final fine: </strong>$22,725</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=307522227&id=307522235">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell collapse">
+            <td class="cell collapse" title="Randall Taylor" align="center">
                 <div class="table-content">
                     <h3>Randall Taylor</h3>
                     <p><strong>Age: </strong>62</p>
@@ -394,11 +515,12 @@
                     <p><strong>Final fine: </strong>$4,560</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=307524439">OSHA report</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
         </tr>
         <tr>
             <td class="date">'05</td>
-            <td class="cell fall">
+            <td class="cell fall" title="Larry Hill" align="center">
                 <div class="table-content">
                     <h3>Larry Hill</h3>
                     <p><strong>Age: </strong>42</p>
@@ -413,8 +535,9 @@
                     <p><strong>Final fine: </strong>$19,900</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=309000990">OSHA report</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell electrocution">
+            <td class="cell electrocution" title="Zac Mitchek" align="center">
                 <div class="table-content">
                     <h3>Zac Mitchek</h3>
                     <p><strong>Age: </strong>42</p>
@@ -429,11 +552,12 @@
                     <p><strong>Final fine: </strong>$11,900</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=309001196&id=309001188">OSHA report</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
         </tr>
         <tr>
             <td class="date">'06</td>
-            <td class="cell asphyxiation">
+            <td class="cell asphyxiation" title="Joshua Arvidson" align="center">
                 <div class="table-content">
                     <h3>Joshua Arvidson</h3>
                     <p><strong>Age: </strong>24</p>
@@ -448,8 +572,9 @@
                     <p><strong>Final fine: </strong>$27,825</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=309002335">OSHA report</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell homicide">
+            <td class="cell homicide" title="Paul Graves" align="center">
                 <div class="table-content">
                     <h3>Paul Graves</h3>
                     <p><strong>Age: </strong>40</p>
@@ -464,8 +589,9 @@
                     <p><strong>Final fine: </strong>$0</p>
                     <p><em>no OSHA inspection</em></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell crush">
+            <td class="cell crush" title="Wesley M. Rodrigues" align="center">
                 <div class="table-content">
                     <h3>Wesley M. Rodrigues</h3>
                     <p><strong>Age: </strong>30</p>
@@ -480,8 +606,9 @@
                     <p><strong>Final fine: </strong>$2,300</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=309197077&id=309197069">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell vehicle">
+            <td class="cell vehicle" title="Philip Smith" align="center">
                 <div class="table-content">
                     <h3>Philip Smith</h3>
                     <p><strong>Age: </strong>44</p>
@@ -496,8 +623,9 @@
                     <p><strong>Final fine: </strong>$3,000</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=310463310">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell struck">
+            <td class="cell struck" title="Jacob Farmer" align="center">
                 <div class="table-content">
                     <h3>Jacob Farmer</h3>
                     <p><strong>Age: </strong>19</p>
@@ -511,9 +639,10 @@
                     <p><strong>Initial fine: </strong>$19,250</p>
                     <p><strong>Final fine: </strong>$15,075</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=310463435&id=310463401&id=310463427">OSHA inspection</a></p>
+                <img id="chart-figure" src="chart_figure.png" />
                 </div>
             </td>
-            <td class="cell explosion">
+            <td class="cell explosion" title="Ricky Erb" align="center">
                 <div class="table-content">
                     <h3>Ricky Erb</h3>
                     <p><strong>Age: </strong>19</p>
@@ -528,11 +657,12 @@
                     <p><strong>Final fine: </strong>$8,725</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=310463526&id=310463518">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
         </tr>
         <tr>
             <td class="date">'07</td>
-            <td class="cell vehicle">
+            <td class="cell vehicle" title="Name unavailable" align="center">
                 <div class="table-content">
                     <h3><em>Name unavailable</em></h3>
                     <p><strong>Age: </strong><em>unavailable</em></p>
@@ -547,8 +677,9 @@
                     <p><strong>Final fine: </strong>$2,100</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=310588405">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell struck">
+            <td class="cell struck" title="Joseph Buchanan Jr." align="center">
                 <div class="table-content">
                     <h3>Joseph Buchanan Jr.</h3>
                     <p><strong>Age: </strong>34</p>
@@ -563,8 +694,9 @@
                     <p><strong>Final fine: </strong>$9,750</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=310468137&id=310468111&id=310468145&id=310468277&id=310468152&id=310468269">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell explosion">
+            <td class="cell explosion" title="Reyes Garcia" align="center">
                 <div class="table-content">
                     <h3>Reyes Garcia</h3>
                     <p><strong>Age: </strong>31</p>
@@ -579,8 +711,9 @@
                     <p><strong>Final fine: </strong>$6,000</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=310468103">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell struck">
+            <td class="cell struck" title="Name unavailable" align="center">
                 <div class="table-content">
                     <h3><em>Name unavailable</em></h3>
                     <p><strong>Age: </strong><em>unavailable</em></p>
@@ -595,8 +728,9 @@
                     <p><strong>Final fine: </strong>$0</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=310469044&id=310469010&id=310468996&id=310469002&id=310469028">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell struck">
+            <td class="cell struck" title="Name unavailable" align="center">
                 <div class="table-content">
                     <h3><em>Name unavailable</em></h3>
                     <p><strong>Age: </strong><em>unavailable</em></p>
@@ -611,11 +745,12 @@
                     <p><strong>Final fine: </strong>$8,200</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=310470091&id=310470075&id=310470109&id=310470067">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
         </tr>
         <tr>
             <td class="date">'08</td>
-            <td class="cell vehicle">
+            <td class="cell vehicle" title="Name unavailable" align="center">
                 <div class="table-content">
                     <h3><em>Name unavailable</em></h3>
                     <p><strong>Age: </strong>45</p>
@@ -630,8 +765,9 @@
                     <p><strong>Final fine: </strong>$1,500</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=310595103">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell crush">
+            <td class="cell crush" title="Christopher Clark" align="center">
                 <div class="table-content">
                     <h3>Christopher Clark</h3>
                     <p><strong>Age: </strong>26</p>
@@ -646,8 +782,9 @@
                     <p><strong>Final fine: </strong>$1,500</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=310472410">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell vehicle">
+            <td class="cell vehicle" title="Name unavailable" align="center">
                 <div class="table-content">
                     <h3><em>Name unavailable</em></h3>
                     <p><strong>Age: </strong><em>unavailable</em></p>
@@ -662,8 +799,9 @@
                     <p><strong>Final fine: </strong>$0</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=311903090">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell electrocution">
+            <td class="cell electrocution" title="Javier Perez" align="center">
                 <div class="table-content">
                     <h3>Javier Perez</h3>
                     <p><strong>Age: </strong><em>unavailable</em></p>
@@ -678,8 +816,9 @@
                     <p><strong>Final fine: </strong>$17,100</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=311904536&id=311904528&id=311904494">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell vehicle">
+            <td class="cell vehicle" title="Steven Raymond Bartlett" align="center">
                 <div class="table-content">
                     <h3>Steven Raymond Bartlett</h3>
                     <p><strong>Age: </strong>50</p>
@@ -694,8 +833,9 @@
                     <p><strong>Final fine: </strong>$0</p>
                     <p><em>no OSHA inspections</em></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell struck">
+            <td class="cell struck" title="Talliesin Dodd Hayden" align="center">
                 <div class="table-content">
                     <h3>Talliesin Dodd Hayden</h3>
                     <p><strong>Age: </strong>38</p>
@@ -710,8 +850,9 @@
                     <p><strong>Final fine: </strong>$3,500</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=311908008&id=311907836">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell vehicle">
+            <td class="cell vehicle" title="Michael Foraker" align="center">
                 <div class="table-content">
                     <h3>Michael Foraker</h3>
                     <p><strong>Age: </strong>51</p>
@@ -726,8 +867,9 @@
                     <p><strong>Final fine: </strong>$0</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=311908081">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell struck">
+            <td class="cell struck" title="Jeffrey Byer" align="center">
                 <div class="table-content">
                     <h3>Jeffrey Byer</h3>
                     <p><strong>Age: </strong>40</p>
@@ -742,6 +884,7 @@
                     <p><strong>Final fine: </strong>$5,000</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=311908628&id=311908784">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
         </tr>
         <tr>
@@ -755,7 +898,7 @@
         </tr>
         <tr>
             <td class="date">'12</td>
-            <td class="cell vehicle">
+            <td class="cell vehicle" title="Name unavailable" align="center">
                 <div class="table-content">
                     <h3><em>Name unavailable</em></h3>
                     <p><strong>Age: </strong><em>unavailable</em></p>
@@ -770,8 +913,9 @@
                     <p><strong>Final fine: </strong>$6,500</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=111310.015">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell explosion">
+            <td class="cell explosion" title="Randy Mathews" align="center">
                 <div class="table-content">
                     <h3>Randy Mathews</h3>
                     <p><strong>Age: </strong>42</p>
@@ -786,8 +930,9 @@
                     <p><strong>Final fine: </strong>$21000</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=530858.015&id=743801.015&id=531358.015&id=521219.015&id=531179.015&id=531038.015">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell fall">
+            <td class="cell fall" title="Adleberto Pena" align="center">
                 <div class="table-content">
                     <h3>Adleberto Pena</h3>
                     <p><strong>Age: </strong>44</p>
@@ -802,8 +947,9 @@
                     <p><strong>Final fine: </strong>$7,000</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=532238.015">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell explosion">
+            <td class="cell explosion" title="Brian John Wallace" align="center">
                 <div class="table-content">
                     <h3>Brian John Wallace</h3>
                     <p><strong>Age: </strong>60</p>
@@ -818,11 +964,12 @@
                     <p><strong>Final fine: </strong>$12,600</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=614318.015&id=580518.015&id=614419.015">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
         </tr>
         <tr>
             <td class="date">'13</td>
-            <td class="cell explosion">
+            <td class="cell explosion" title="Jonathan Herod" align="center">
                 <div class="table-content">
                     <h3>Jonathan Herod</h3>
                     <p><strong>Age: </strong>49</p>
@@ -837,11 +984,12 @@
                     <p><strong>Final fine: </strong>$16,800</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=811861.015&id=810321.015">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
         </tr>
         <tr>
             <td class="date">'14</td>
-            <td class="cell struck">
+            <td class="cell struck" title="Adam Kujawa" align="center">
                 <div class="table-content">
                     <h3>Adam Kujawa</h3>
                     <p><strong>Age: </strong>28</p>
@@ -856,8 +1004,9 @@
                     <p><strong>Final fine: </strong>$17,000</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=955793.015&id=955711.015&id=955800.015">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell gauging">
+            <td class="cell gauging" title="Joe Ray Sherman" align="center">
                 <div class="table-content">
                     <h3>Joe Ray Sherman</h3>
                     <p><strong>Age: </strong>51</p>
@@ -872,8 +1021,9 @@
                     <p><strong>Final fine: </strong>$5775</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=962598.015&id=962422.015&id=962452.015&id=962582.015&id=962590.015&id=962357.015&id=962611.015&id=962357">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell gauging">
+            <td class="cell gauging" title="John McNulty" align="center">
                 <div class="table-content">
                     <h3>John McNulty</h3>
                     <p><strong>Age: </strong>57</p>
@@ -888,8 +1038,9 @@
                     <p><strong>Final fine: </strong>$20,800</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=984593.015&id=982339.015&id=984608.015">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell gauging">
+            <td class="cell gauging" title="Jim Freemyer" align="center">
                 <div class="table-content">
                     <h3>Jim Freemyer</h3>
                     <p><strong>Age: </strong>59</p>
@@ -904,8 +1055,9 @@
                     <p><strong>Final fine: </strong>$18,000</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=985693.015&id=985869.015">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell vehicle">
+            <td class="cell vehicle" title="Christopher Farrow" align="center">
                 <div class="table-content">
                     <h3>Christopher Farrow</h3>
                     <p><strong>Age: </strong>48</p>
@@ -920,8 +1072,9 @@
                     <p><strong>Final fine: </strong>$0</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=1000955.015">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell struck">
+            <td class="cell struck" title="Shane Hill" align="center">
                 <div class="table-content">
                     <h3>Shane Hill</h3>
                     <p><strong>Age: </strong>34</p>
@@ -936,8 +1089,9 @@
                     <p><strong>Final fine: </strong>$9,805</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=1005350.015&id=1005719.015&id=1005719">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
-            <td class="cell explosion">
+            <td class="cell explosion" title="Matthew Smith" align="center">
                 <div class="table-content">
                     <h3>Matthew Smith</h3>
                     <p><strong>Age: </strong>36</p>
@@ -952,11 +1106,12 @@
                     <p><strong>Final fine: </strong>$7,000</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=1057422.015&id=1012266.015">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
         </tr>
         <tr>
             <td class="date">'15</td>
-            <td class="cell explosion">
+            <td class="cell explosion" title="Reuben Camacho" align="center">
                 <div class="table-content">
                     <h3>Reuben Camacho</h3>
                     <p><strong>Age: </strong>26</p>
@@ -971,6 +1126,7 @@
                     <p><strong>Final fine: </strong>$5600</p>
                     <p><a href="https://www.osha.gov/pls/imis/establishment.inspection_detail?id=1021628.015&id=1040477.015">OSHA inspection</a></p>
                 </div>
+                <img id="chart-figure" src="chart_figure.png" />
             </td>
         </tr>
     </table>
