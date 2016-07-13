@@ -10,16 +10,33 @@
 </head>
 
 <body>
-    <h3>Fatalities by state, 2003-14</h3>
-    <p>From 2003 to 2014, some 1,200 oil and gas workers have been killed on the job. With 45 fatalities, Colorado ranks seventh in the country. Texas has the most worker deaths, with 538 killed on the job.</p>
+    <!-- FATALITIES BY STATE BAR CHART -->
+    <h3>U.S. oil and gas worker fatalities 2003-14</h3>
+    <p>From 2003 to 2014, more than 1,300 oil and gas workers have been killed on the job. With 45 fatalities, Colorado ranks seventh in the country. Texas has the most worker deaths, with 538 killed on the job. <em>Note here on difficulty of pinning these figures down with link to sidebar story about that.</em></p>
     <div style="height: 400px;" id="bar-fatalities"></div>
-    <div style="width: 33%; float: left;" id="donut-age"></div>
-    <div style="width: 33%; float: right;" id="donut-race"></div>
-    <div style="width: 33%; float: right;" id="donut-type"></div>
+    <hr>
+    <div>
+        <h3>U.S. oil and gas worker fatalities by demographics, cause</h3>
+        <div style="width: 33%; float: left;" id="donut-age"></div>
+        <div style="width: 33%; float: left;" id="donut-race"></div>
+        <div style="width: 33%; float: left;" id="donut-type"></div>
+    </div>
+    <hr style="clear: left;">
+    <div>
+        <div style="width: 50%; float:left;">
+            <h3>U.S. oil and gas worker fatalities by rig count</h3>
+            <div style="height: 400px;" id="bar-fatalities-rate"></div>
+        </div>
+        <div style="width: 50%; float: right;">
+            <h3>Colorado oil and gas worker fatalities by rig count</h3>
+            <div style="height: 400px;" id="bar-fatalities-rate-colorado"></div>
+        </div>
+    </div>
     <!-- Load d3.js and c3.js -->
-    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script src="../js/c3.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js " charset="utf-8 "></script>
+    <script src="../js/c3.min.js "></script>
     <script>
+    // ----- BAR CHART: FATALITIES BY STATE ----- //
     var barFatalities = c3.generate({
         bindto: '#bar-fatalities',
         data: {
@@ -71,7 +88,7 @@
     setTimeout(function() {
         barFatalities.load({
             columns: [
-                ['National total', 78, 86, 93, 110, 110, 97, 55, 90, 105, 136, 101, 139],
+                ['National total', 85, 98, 98, 125, 122, 120, 68, 107, 112, 142, 112, 144],
             ],
             type: 'bar'
         });
@@ -108,7 +125,7 @@
         'Wyoming': '#bbb',
         'North Dakota': '#bbb'
     });
-
+    // ----- PIE CHARTS: FATALITIES DEMOGRAPHICS, CAUSE ----- //
     var donutAge = c3.generate({
         bindto: '#donut-age',
         color: {
@@ -126,26 +143,26 @@
             ],
             type: 'donut',
             onclick: function(d, i) {
-                console.log("onclick", d, i);
+                console.log("onclick ", d, i);
             },
             onmouseover: function(d, i) {
-                console.log("onmouseover", d, i);
+                console.log("onmouseover ", d, i);
             },
             onmouseout: function(d, i) {
-                console.log("onmouseout", d, i);
+                console.log("onmouseout ", d, i);
             },
         },
         donut: {
-            title: "Fatalities by Age"
+            title: "Fatalities by Age "
         }
     });
 
     /* setTimeout(function() {
         chart.load({
             columns: [
-                ["setosa", 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.2, 0.1, 0.1, 0.2, 0.4, 0.4, 0.3, 0.3, 0.3, 0.2, 0.4, 0.2, 0.5, 0.2, 0.2, 0.4, 0.2, 0.2, 0.2, 0.2, 0.4, 0.1, 0.2, 0.2, 0.2, 0.2, 0.1, 0.2, 0.2, 0.3, 0.3, 0.2, 0.6, 0.4, 0.3, 0.2, 0.2, 0.2, 0.2],
-                ["versicolor", 1.4, 1.5, 1.5, 1.3, 1.5, 1.3, 1.6, 1.0, 1.3, 1.4, 1.0, 1.5, 1.0, 1.4, 1.3, 1.4, 1.5, 1.0, 1.5, 1.1, 1.8, 1.3, 1.5, 1.2, 1.3, 1.4, 1.4, 1.7, 1.5, 1.0, 1.1, 1.0, 1.2, 1.6, 1.5, 1.6, 1.5, 1.3, 1.3, 1.3, 1.2, 1.4, 1.2, 1.0, 1.3, 1.2, 1.3, 1.3, 1.1, 1.3],
-                ["virginica", 2.5, 1.9, 2.1, 1.8, 2.2, 2.1, 1.7, 1.8, 1.8, 2.5, 2.0, 1.9, 2.1, 2.0, 2.4, 2.3, 1.8, 2.2, 2.3, 1.5, 2.3, 2.0, 2.0, 1.8, 2.1, 1.8, 1.8, 1.8, 2.1, 1.6, 1.9, 2.0, 2.2, 1.5, 1.4, 2.3, 2.4, 1.8, 1.8, 2.1, 2.4, 2.3, 1.9, 2.3, 2.5, 2.3, 1.9, 2.0, 2.3, 1.8],
+                ["setosa ", 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.2, 0.1, 0.1, 0.2, 0.4, 0.4, 0.3, 0.3, 0.3, 0.2, 0.4, 0.2, 0.5, 0.2, 0.2, 0.4, 0.2, 0.2, 0.2, 0.2, 0.4, 0.1, 0.2, 0.2, 0.2, 0.2, 0.1, 0.2, 0.2, 0.3, 0.3, 0.2, 0.6, 0.4, 0.3, 0.2, 0.2, 0.2, 0.2],
+                ["versicolor ", 1.4, 1.5, 1.5, 1.3, 1.5, 1.3, 1.6, 1.0, 1.3, 1.4, 1.0, 1.5, 1.0, 1.4, 1.3, 1.4, 1.5, 1.0, 1.5, 1.1, 1.8, 1.3, 1.5, 1.2, 1.3, 1.4, 1.4, 1.7, 1.5, 1.0, 1.1, 1.0, 1.2, 1.6, 1.5, 1.6, 1.5, 1.3, 1.3, 1.3, 1.2, 1.4, 1.2, 1.0, 1.3, 1.2, 1.3, 1.3, 1.1, 1.3],
+                ["virginica ", 2.5, 1.9, 2.1, 1.8, 2.2, 2.1, 1.7, 1.8, 1.8, 2.5, 2.0, 1.9, 2.1, 2.0, 2.4, 2.3, 1.8, 2.2, 2.3, 1.5, 2.3, 2.0, 2.0, 1.8, 2.1, 1.8, 1.8, 1.8, 2.1, 1.6, 1.9, 2.0, 2.2, 1.5, 1.4, 2.3, 2.4, 1.8, 1.8, 2.1, 2.4, 2.3, 1.9, 2.3, 2.5, 2.3, 1.9, 2.0, 2.3, 1.8],
             ]
         });
     }, 3500);
@@ -175,17 +192,17 @@
             ],
             type: 'donut',
             onclick: function(d, i) {
-                console.log("onclick", d, i);
+                console.log("onclick ", d, i);
             },
             onmouseover: function(d, i) {
-                console.log("onmouseover", d, i);
+                console.log("onmouseover ", d, i);
             },
             onmouseout: function(d, i) {
-                console.log("onmouseout", d, i);
+                console.log("onmouseout ", d, i);
             },
         },
         donut: {
-            title: "Fatalities by Race"
+            title: "Fatalities by Race "
         }
     });
 
@@ -205,18 +222,123 @@
             ],
             type: 'donut',
             onclick: function(d, i) {
-                console.log("onclick", d, i);
+                console.log("onclick ", d, i);
             },
             onmouseover: function(d, i) {
-                console.log("onmouseover", d, i);
+                console.log("onmouseover ", d, i);
             },
             onmouseout: function(d, i) {
-                console.log("onmouseout", d, i);
+                console.log("onmouseout ", d, i);
             },
         },
         donut: {
-            title: "Fatalities by Category"
+            title: "Fatalities by Category "
         }
+    });
+
+    // ----- BAR CHART: NATIONAL FATALITY RATE BY RIG COUNT ----- //
+    var barFatalitiesRate = c3.generate({
+        bindto: '#bar-fatalities-rate',
+        data: {
+            x: 'x',
+            //        xFormat: '%Y%m%d', // 'xFormat' can be used as custom format of 'x'
+            columns: [
+                ['x', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014'],
+                //            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
+                ['Average rig count', 924, 1095, 1290, 1559, 1695, 1814, 1046, 1514, 1846, 1871, 1705, 1804],
+                ['Fatality rate per 100 rigs', 9.2, 9.0, 7.6, 8.0, 7.2, 6.6, 6.5, 7.1, 6.1, 7.6, 6.7, 8.0]
+            ],
+            types: {
+                'Average rig count': 'bar',
+                'Rate per 100 rigs': 'line'
+            },
+            axes: {
+                'Fatality rate per 100 rigs': 'y2'
+            }
+        },
+
+        grid: {
+            x: {
+                show: true
+            },
+            y: {
+                show: true
+            }
+        },
+        legend: {
+            position: 'inset'
+        },
+        axis: {
+            y: {
+                label: {
+                    text: 'Average rig count (bar)',
+                    position: 'outer-middle'
+                }
+            },
+            y2: {
+                show: true,
+                label: {
+                    text: 'Fatality rate (line)',
+                    position: 'outer-middle'
+                }
+            }
+        }
+    });
+    barFatalitiesRate.data.colors({
+        'Average rig count': '#ddd',
+        'Fatality rate per 100 rigs': '#000'
+    });
+    // ----- BAR CHART: COLORADO FATALITY RATE BY RIG COUNT ----- //
+    var barFatalitiesRateColorado = c3.generate({
+        bindto: '#bar-fatalities-rate-colorado',
+        data: {
+            x: 'x',
+            //        xFormat: '%Y%m%d', // 'xFormat' can be used as custom format of 'x'
+            columns: [
+                ['x', '2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014'],
+                //            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
+                ['Average Colorado rig count', 18, 32, 28, 39, 54, 74, 89, 107, 114, 50, 58, 72, 64, 63, 68],
+                ['Fatality rate per 10 rigs', 0, 0.93, 0.72, 0.51, 0.55, 0.27, 0.68, 0.47, 0.70, 0, 0, 0, 0.62, 0.16, 1.03]
+            ],
+            types: {
+                'Average Colorado rig count': 'bar',
+                'Rate per 10 rigs': 'line'
+            },
+            axes: {
+                'Fatality rate per 10 rigs': 'y2'
+            }
+        },
+
+        grid: {
+            x: {
+                show: true
+            },
+            y: {
+                show: true
+            }
+        },
+        legend: {
+            position: 'inset'
+        },
+        axis: {
+            y: {
+                label: {
+                    text: 'Average Colorado rig count (bar)',
+                    position: 'outer-middle'
+                }
+            },
+            y2: {
+                show: true,
+                label: {
+                    text: 'Fatality rate (line)',
+                    position: 'outer-middle'
+                }
+            }
+        }
+    });
+    barFatalitiesRateColorado.data.colors({
+        'Average Colorado rig count': '#ddd',
+        'Fatality rate per 10 rigs': '#000'
     });
     </script>
 </body>
