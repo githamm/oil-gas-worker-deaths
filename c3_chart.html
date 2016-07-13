@@ -31,14 +31,32 @@
                 ['Colorado', 4, 6, 4, 3, 4, 6, 0, 0, 5, 7, 0, 6]
             ]
         },
-        /* axis: {
-            x: {
+        type: 'line',
+        axis: {
+            /* x: {
                 type: 'timeseries',
                 tick: {
                     format: function (x) { return x.getFullYear(); }
                 }
+            } */
+            y: {
+                label: {
+                    text: 'Worker fatalities',
+                    position: 'outer-middle'
+                }
             }
-        } */
+        },
+        grid: {
+            x: {
+                show: true
+            },
+            y: {
+                show: true
+            }
+        },
+        legend: {
+            position: 'inset'
+        }
     });
 
     setTimeout(function() {
@@ -46,7 +64,7 @@
             columns: [
                 ['Texas', 33, 34, 40, 46, 48, 41, 26, 43, 41, 65, 50, 71],
             ],
-            type: 'line',
+            type: 'line'
         });
     }, 3000);
 
@@ -55,7 +73,7 @@
             columns: [
                 ['National total', 78, 86, 93, 110, 110, 97, 55, 90, 105, 136, 101, 139],
             ],
-            type: 'bar',
+            type: 'bar'
         });
     }, 6000);
 
