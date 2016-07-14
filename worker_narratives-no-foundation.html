@@ -5,13 +5,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width">
     <title>Oil and gas worker deaths chart</title>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/foundation.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation/foundation.dropdown.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.js"></script>
     <style>
     #graphic-container {
-        max-width: 650px;
+        width: 650px;
     }
     
     .chart {
@@ -37,20 +36,9 @@
     table#profile {
         max-width: 58%;
         table-layout: fixed;
-        border-collapse: inherit;
-        border: none;
-        border-spacing: 3px;
         float: left;
         clear: both;
     }
-
-table#profile td {
-    padding: 0;
-    text-align: center;
-    height: 30px;
-    width: 30px;
-}
-
     /* table#profile td *{
         /* text-indent: -10000px; 
         height: 25px;
@@ -68,12 +56,13 @@ table#profile td {
         cursor: pointer;
         height: 25px;
         width: 25px;
-        
+        border-radius: 50%;
+        border: 4px solid #bbb;
     }
     
     td.fall:hover {
-        background: rgba(22, 117, 175, .8);
-        
+        background: #bbb;
+        border: 4px solid #bbb;
     }
     /* td.fall > img {
         display: none;
@@ -102,7 +91,8 @@ table#profile td {
         cursor: pointer;
         height: 25px;
         width: 25px;
-        
+        border-radius: 50%;
+        border: 4px solid #bbb;
     }
     
     td.struck:hover {
@@ -114,7 +104,8 @@ table#profile td {
         cursor: pointer;
         height: 25px;
         width: 25px;
-        
+        border-radius: 50%;
+        border: 4px solid #bbb;
     }
     
     td.crush:hover {
@@ -126,7 +117,8 @@ table#profile td {
         cursor: pointer;
         height: 25px;
         width: 25px;
-        
+        border-radius: 50%;
+        border: 4px solid #bbb;
     }
     
     td.explosion:hover {
@@ -138,7 +130,8 @@ table#profile td {
         cursor: pointer;
         height: 25px;
         width: 25px;
-        
+        border-radius: 50%;
+        border: 4px solid #bbb;
     }
     
     td.collapse:hover {
@@ -150,7 +143,8 @@ table#profile td {
         cursor: pointer;
         height: 25px;
         width: 25px;
-        
+        border-radius: 50%;
+        border: 4px solid #bbb;
     }
     
     td.vehicle:hover {
@@ -162,7 +156,8 @@ table#profile td {
         cursor: pointer;
         height: 25px;
         width: 25px;
-        
+        border-radius: 50%;
+        border: 4px solid #bbb;
     }
     
     td.electrocution:hover {
@@ -174,7 +169,8 @@ table#profile td {
         cursor: pointer;
         height: 25px;
         width: 25px;
-        
+        border-radius: 50%;
+        border: 4px solid #bbb;
     }
     
     td.asphyxiation:hover {
@@ -186,7 +182,8 @@ table#profile td {
         cursor: pointer;
         height: 25px;
         width: 25px;
-        
+        border-radius: 50%;
+        border: 4px solid #bbb;
     }
     
     td.homicide:hover {
@@ -198,7 +195,8 @@ table#profile td {
         cursor: pointer;
         height: 25px;
         width: 25px;
-        
+        border-radius: 50%;
+        border: 4px solid #bbb;
     }
     
     td.gauging:hover {
@@ -206,8 +204,7 @@ table#profile td {
     }
     
     table#profile tr {
-        /* height: 25px; */
-        background: none;
+        height: 25px;
     }
     
     #profile-container {
@@ -243,7 +240,10 @@ table#profile td {
     }
     
     table#profile th {
-        border-color: none;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        color: #333;
     }
     
     @media (max-width: 600px) {
@@ -251,7 +251,7 @@ table#profile td {
             max-width: 100%;
             float: none;
         }
-        #profile-container {
+        #container {
             width: 100%;
             float: none;
             margin-top: 50px;
@@ -261,12 +261,10 @@ table#profile td {
     
     td.cell-highlight {
         background: rgba(175, 22, 40, .6);
-        
+        border: 4px solid #bbb;
     }
-    /* ul#legend.button-group {
-        margin-bottom: 0;
-    } */
-    /* ul {
+    
+    ul {
         list-style-type: none;
         display: inline-block;
     }
@@ -281,7 +279,7 @@ table#profile td {
         display: inline;
         float: left;
         margin-right: 8px;
-    } */
+    }
     
     table#legend-2 > td {
         width: 33%;
@@ -381,18 +379,20 @@ table#profile td {
     <div id="graphic-container">
         <h2 class="chart">Oil and gas worker fatalities</h2>
         <p class="chart">Since 2001 44 oil and gas workers have died on the job site chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter chatter. <em>Click chart segments for details about the workers.</em></p>
-        <ul class="legend">
-            <li class="click-type small button" id="legend-struck" data-type="struck">Struck by equipment (11)</li>
-            <li class="click-type button" id="legend-explosion" data-type="explosion">Explosion/fire (8)</li>
-            <li class="click-type button" id="legend-vehicle" data-type="vehicle">Vehicle accident (8)</li>
-            <li class="click-type button" id="legend-fall" data-type="fall">Fall (4)</li>
-            <li class="click-type button" id="legend-crush" data-type="crush">Crushed (3)</li>
-            <li class="click-type button" id="legend-collapse" data-type="collapse">Rig collapse (3)</li>
-            <li class="click-type button" id="legend-gauging" data-type="gauging">Gauging (3)</li>
-            <li class="click-type button" id="legend-electrocution" data-type="electrocution">Electrocution (2)</li>
-            <li class="click-type button" id="legend-asphyxiation" data-type="asphyxiation">Asphyxiation (1)</li>
-            <li class="click-type button" id="legend-homicide" data-type="homicide">Homicide (1)</li>
-        </ul>
+        
+            <ul id="legend">
+                <li class="click-type" id="legend-struck" data-type="struck">Struck by equipment (11)</li>
+                <li class="click-type" id="legend-explosion" data-type="explosion">Explosion/fire (8)</li>
+                <li class="click-type" id="legend-vehicle" data-type="vehicle">Vehicle accident (8)</li>
+                <li class="click-type" id="legend-fall" data-type="fall">Fall (4)</li>
+                <li class="click-type" id="legend-crush" data-type="crush">Crushed between equipment &bull; 3</li>
+                <li class="click-type" id="legend-collapse" data-type="collapse">Rig collapse &bull; 3</li>
+                <li class="click-type" id="legend-gauging" data-type="gauging">Gauging (3)</li>
+                <li class="click-type" id="legend-electrocution" data-type="electrocution">Electrocution (2)</li>
+                <li class="click-type" id="legend-asphyxiation" data-type="asphyxiation">Asphyxiation (1)</li>
+                <li class="click-type" id="legend-homicide" data-type="homicide">Homicide (1)</li>
+            </ul>
+        
         <hr>
         <table id="profile">
             <tr>
