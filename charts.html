@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width">
     <title>C3 Chart</title>
     <!-- Load c3.css -->
-    <link href="../css/c3.css" rel="stylesheet" type="text/css">
+    <link href="./css/c3.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -32,9 +32,14 @@
             <div style="height: 400px;" id="bar-fatalities-rate-colorado"></div>
         </div>
     </div>
+    <hr>
+    <div>
+        <h3>Colorado oil and gas worker fatality rate by OSHA oil and gas inspections</h3>
+        <div style="height: 400px;" id="bar-osha-inspections-fatalities"></div>
+    </div>
     <!-- Load d3.js and c3.js -->
     <script src="http://d3js.org/d3.v3.min.js " charset="utf-8 "></script>
-    <script src="../js/c3.min.js "></script>
+    <script src="./js/c3.min.js "></script>
     <script>
     // ----- BAR CHART: FATALITIES BY STATE ----- //
     var barFatalities = c3.generate({
@@ -245,11 +250,11 @@
             columns: [
                 ['x', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014'],
                 //            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
-                ['Average rig count', 924, 1095, 1290, 1559, 1695, 1814, 1046, 1514, 1846, 1871, 1705, 1804],
+                ['Average U.S. rig count', 924, 1095, 1290, 1559, 1695, 1814, 1046, 1514, 1846, 1871, 1705, 1804],
                 ['Fatality rate per 100 rigs', 9.2, 9.0, 7.6, 8.0, 7.2, 6.6, 6.5, 7.1, 6.1, 7.6, 6.7, 8.0]
             ],
             types: {
-                'Average rig count': 'bar',
+                'Average U.S. rig count': 'bar',
                 'Rate per 100 rigs': 'line'
             },
             axes: {
@@ -271,7 +276,7 @@
         axis: {
             y: {
                 label: {
-                    text: 'Average rig count (bar)',
+                    text: 'Average U.S. rig count (bar)',
                     position: 'outer-middle'
                 }
             },
@@ -285,7 +290,7 @@
         }
     });
     barFatalitiesRate.data.colors({
-        'Average rig count': '#ddd',
+        'Average U.S. rig count': '#ddd',
         'Fatality rate per 100 rigs': '#000'
     });
     // ----- BAR CHART: COLORADO FATALITY RATE BY RIG COUNT ----- //
@@ -295,17 +300,17 @@
             x: 'x',
             //        xFormat: '%Y%m%d', // 'xFormat' can be used as custom format of 'x'
             columns: [
-                ['x', '2000', '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014'],
+                ['x', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014'],
                 //            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
-                ['Average Colorado rig count', 18, 32, 28, 39, 54, 74, 89, 107, 114, 50, 58, 72, 64, 63, 68],
-                ['Fatality rate per 10 rigs', 0, 0.93, 0.72, 0.51, 0.55, 0.27, 0.68, 0.47, 0.70, 0, 0, 0, 0.62, 0.16, 1.03]
+                ['Average Colorado rig count', 39, 54, 74, 89, 107, 114, 50, 58, 72, 64, 63, 68],
+                ['Fatality rate per 100 rigs', 5.1, 5.5, 2.7, 6.8, 4.7, 7.0, 0, 0, 0, 6.2, 1.6, 10.3]
             ],
             types: {
                 'Average Colorado rig count': 'bar',
-                'Rate per 10 rigs': 'line'
+                'Rate per 100 rigs': 'line'
             },
             axes: {
-                'Fatality rate per 10 rigs': 'y2'
+                'Fatality rate per 100 rigs': 'y2'
             }
         },
 
@@ -338,7 +343,59 @@
     });
     barFatalitiesRateColorado.data.colors({
         'Average Colorado rig count': '#ddd',
-        'Fatality rate per 10 rigs': '#000'
+        'Fatality rate per 100 rigs': '#000'
+    });
+    // ----- BAR CHART: COLORADO INSPECTIONS VS FATALITY RATE ----- //
+    var barInspections = c3.generate({
+        bindto: '#bar-osha-inspections-fatalities',
+        data: {
+            x: 'x',
+            //        xFormat: '%Y%m%d', // 'xFormat' can be used as custom format of 'x'
+            columns: [
+                ['x', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014'],
+                //            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
+                ['OSHA oil and gas inspections', 11, 29, 58, 64, 128, 107, 55, 53, 72, 52, 42, 53],
+                ['Fatality rate per 100 rigs', 5.1, 5.5, 2.7, 6.8, 4.7, 7.0, 0, 0, 0, 6.2, 1.6, 10.3]
+            ],
+            types: {
+                'OSHA oil and gas inspections': 'bar',
+                'Rate per 100 rigs': 'line'
+            },
+            axes: {
+                'Fatality rate per 100 rigs': 'y2'
+            }
+        },
+
+        grid: {
+            x: {
+                show: true
+            },
+            y: {
+                show: true
+            }
+        },
+        legend: {
+            position: 'inset'
+        },
+        axis: {
+            y: {
+                label: {
+                    text: 'OSHA oil and gas inspections (bar)',
+                    position: 'outer-middle'
+                }
+            },
+            y2: {
+                show: true,
+                label: {
+                    text: 'Fatality rate (line)',
+                    position: 'outer-middle'
+                }
+            }
+        }
+    });
+    barInspections.data.colors({
+        'OSHA oil and gas inspections': '#ddd',
+        'Fatality rate per 100 rigs': '#000'
     });
     </script>
 </body>
