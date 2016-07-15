@@ -37,6 +37,10 @@
         <h3>Colorado oil and gas worker fatality rate by OSHA oil and gas inspections</h3>
         <div style="height: 400px;" id="bar-osha-inspections-fatalities"></div>
     </div>
+    <div>
+        <h3>Hazardous occupations 2014</h3>
+        <div style="height: 400px;" id="bar-hazardous-occupations"></div>
+    </div>
     <!-- Load d3.js and c3.js -->
     <script src="http://d3js.org/d3.v3.min.js " charset="utf-8 "></script>
     <script src="./js/c3.min.js "></script>
@@ -396,6 +400,121 @@
     barInspections.data.colors({
         'OSHA oil and gas inspections': '#ddd',
         'Fatality rate per 100 rigs': '#000'
+    });
+    // ----- BAR CHART: HAZARDOUS OCCUPATIONS ----- //
+    /* var barHazardousOccupations = c3.generate({
+        bindto: '#bar-hazardous-occupations',
+        data: {
+            // x: 'x',
+            //        xFormat: '%Y%m%d', // 'xFormat' can be used as custom format of 'x'
+            columns: [
+                //    ['x', 'Construction', 'Transportation, warehousing', 'Agriculture, forestry, fishing, hunting', 'Government', 'Professional and business services', 'Manufacturing', 'Retail trade', 'Leisure and hospitality', 'Mining, quarrying, oil and gas extraction', 'Wholesale trade', 'Other', 'Educational and health services', 'Financial activities', 'Information', 'Utilities'],
+                //            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
+                ['Fatality count', 874, 735, 568, 428, 418, 341, 267, 207, 181, 179, 174, 144, 114, 32, 17],
+                ['Fatality rate', 9.5, 13.5, 24.9, 1.9, 2.6, 2.2, 1.8, 1.9, 14.1, 4.8, 2.6, 0.7, 1.2, 1.1, 1.7]
+            ],
+            types: {
+                'Fatality count': 'bar',
+                'Fatality rate': 'bar'
+            },
+            axes: {
+                'Fatality count': 'y',
+                'Fatality rate': 'y2'
+            }
+        },
+
+        grid: {
+            x: {
+                show: true
+            },
+            y: {
+                show: true
+            }
+        },
+        legend: {
+            position: 'inset'
+        },
+        axis: {
+            x: {
+                type: 'category',
+                categories: ['Construction', 'Transportation, warehousing', 'Agriculture, forestry, fishing, hunting', 'Government', 'Professional and business services', 'Manufacturing', 'Retail trade', 'Leisure and hospitality', 'Mining, quarrying, oil and gas extraction', 'Wholesale trade', 'Other', 'Educational and health services', 'Financial activities', 'Information', 'Utilities']
+            },
+
+            y: {
+                label: {
+                    text: 'Fatality count',
+                    position: 'outer-middle'
+                }
+            },
+            y2: {
+                show: true,
+                label: {
+                    text: 'Fatality rate',
+                    position: 'outer-middle'
+                }
+            }
+        }
+    });
+    barHazardousOccupations.data.colors({
+        'Fatality count': '#bbb',
+        'Fatality rate': '#990012'
+    }); */
+
+    var barHazardousOccupations = c3.generate({
+        bindto: '#bar-hazardous-occupations',
+        data: {
+            x: 'x',
+            columns: [
+                ['x', 'Construction', 'Transportation, warehousing', 'Agriculture, forestry, fishing, hunting', 'Government', 'Professional and business services', 'Manufacturing', 'Retail trade', 'Leisure and hospitality', 'Mining, quarrying, oil and gas extraction', 'Wholesale trade', 'Other', 'Educational and health services', 'Financial activities', 'Information', 'Utilities'],
+                ['Fatality count', 874, 735, 568, 428, 418, 341, 267, 207, 181, 179, 174, 144, 114, 32, 17],
+                ['Fatality rate', 9.5, 13.5, 24.9, 1.9, 2.6, 2.2, 1.8, 1.9, 14.1, 4.8, 2.6, 0.7, 1.2, 1.1, 1.7]
+            ],
+            type: 'bar',
+            axes: {
+                'Fatality count': 'y',
+                'Fatality rate': 'y2'
+            }
+        },
+
+        grid: {
+            x: {
+                show: true
+            },
+            y: {
+                show: true
+            }
+        },
+        legend: {
+            position: 'inset'
+        },
+        axis: {
+            x: {
+                type: 'category',
+                tick: {
+                    'rotate': 40,
+                    multiline: false
+                },
+            height: 0
+            },
+
+            y: {
+                label: {
+                    text: 'Fatality count',
+                    position: 'outer-middle'
+                }
+            },
+            y2: {
+                show: true,
+                label: {
+                    text: 'Fatality rate',
+                    position: 'outer-middle'
+                }
+            }
+        }
+    });
+    barHazardousOccupations.data.colors({
+        'Fatality count': '#bbb',
+        'Fatality rate': '#990012'
     });
     </script>
 </body>
