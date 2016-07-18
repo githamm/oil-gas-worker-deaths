@@ -55,8 +55,8 @@
     <div>
         <h3>Hazardous occupations 2014</h3>
         <p>In 2014, 181 workers in the mining, quarrying and natural gas extraction sector died on the job, making it the ninth most dangerous sector for workers in the country. With 874 on-the-job deaths, construction workers had the highest fatality count. However, when measured by rate per 100,000 workers, the mining, quarrying and natural gas extraction sector ranked second (14.1) behind only the agriculture, forestry, fishing and hunting sector (24.9).
-        <div style="height: 400px;" id="bar-hazardous-occupations"></div>
-        <p class="source">Bureau of Labor Statistics</p>
+            <div style="height: 400px;" id="bar-hazardous-occupations"></div>
+            <p class="source">Bureau of Labor Statistics</p>
     </div>
     <!-- Load d3.js and c3.js -->
     <script src="http://d3js.org/d3.v3.min.js " charset="utf-8 "></script>
@@ -67,10 +67,8 @@
         bindto: '#bar-fatalities',
         data: {
             x: 'x',
-            //        xFormat: '%Y%m%d', // 'xFormat' can be used as custom format of 'x'
             columns: [
                 ['x', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014'],
-                //            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
                 ['Colorado', 4, 6, 4, 3, 4, 6, 0, 0, 5, 7, 0, 6]
             ]
         },
@@ -248,10 +246,8 @@
         bindto: '#bar-fatalities-rate',
         data: {
             x: 'x',
-            //        xFormat: '%Y%m%d', // 'xFormat' can be used as custom format of 'x'
             columns: [
                 ['x', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014'],
-                //            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
                 ['Average U.S. rig count', 924, 1095, 1290, 1559, 1695, 1814, 1046, 1514, 1846, 1871, 1705, 1804],
                 ['Fatality rate per 100 rigs', 9.2, 9.0, 7.6, 8.0, 7.2, 6.6, 6.5, 7.1, 6.1, 7.6, 6.7, 8.0]
             ],
@@ -300,10 +296,8 @@
         bindto: '#bar-fatalities-rate-colorado',
         data: {
             x: 'x',
-            //        xFormat: '%Y%m%d', // 'xFormat' can be used as custom format of 'x'
             columns: [
                 ['x', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014'],
-                //            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
                 ['Average Colorado rig count', 39, 54, 74, 89, 107, 114, 50, 58, 72, 64, 63, 68],
                 ['Fatality rate per 100 rigs', 5.1, 5.5, 2.7, 6.8, 4.7, 7.0, 0, 0, 0, 6.2, 1.6, 10.3]
             ],
@@ -352,10 +346,8 @@
         bindto: '#bar-osha-inspections-fatalities',
         data: {
             x: 'x',
-            //        xFormat: '%Y%m%d', // 'xFormat' can be used as custom format of 'x'
             columns: [
                 ['x', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014'],
-                //            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
                 ['OSHA oil and gas inspections', 11, 29, 58, 64, 128, 107, 55, 53, 72, 52, 42, 53],
                 ['Fatality rate per 100 rigs', 5.1, 5.5, 2.7, 6.8, 4.7, 7.0, 0, 0, 0, 6.2, 1.6, 10.3]
             ],
