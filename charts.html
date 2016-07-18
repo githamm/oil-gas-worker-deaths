@@ -4,25 +4,37 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width">
-    <title>C3 Chart</title>
+    <title>Oil and Gas Worker Fatalities Charts</title>
     <!-- Load c3.css -->
     <link href="./css/c3.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/css/foundation.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation.min.js"></script>
+    <style type="text/css">
+    .source {
+        font-style: italic;
+        text-align: right;
+    }
+    </style>
 </head>
 
 <body>
     <!-- FATALITIES BY STATE BAR CHART -->
     <h3>U.S. oil and gas worker fatalities 2003-14</h3>
-    <p>From 2003 to 2014, more than 1,300 oil and gas workers have been killed on the job. With 45 fatalities, Colorado ranks seventh in the country. Texas has the most worker deaths, with 538 killed on the job. <em>Note here on difficulty of pinning these figures down with link to sidebar story about that.</em></p>
+    <p>From 2003 to 2014, more than 1,300 oil and gas workers have been killed on the job. With 45 fatalities in that time period, Colorado ranks seventh in the country. Texas has the most worker deaths, with 538 killed on the job. <em>Note here on difficulty of pinning these figures down with link to sidebar story about that.</em></p>
     <div style="height: 400px;" id="bar-fatalities"></div>
+    <p class="source">Source: Bureau of Labor Statistics, Denver Post research</p>
     <hr>
     <div>
-        <h3>U.S. oil and gas worker fatalities by demographics, cause</h3>
+        <h3>U.S. oil and gas worker fatalities 2003-14 by demographics, cause</h3>
         <div style="width: 33%; float: left;" id="donut-age"></div>
         <div style="width: 33%; float: left;" id="donut-race"></div>
         <div style="width: 33%; float: left;" id="donut-type"></div>
+        <p class="source">Source: Bureau of Labor Statistics, Denver Post research</p>
     </div>
     <hr style="clear: left;">
     <div>
+        <h3>Fatality rates by average rig count</h3>
+        <p>These charts plot the average rig count in the United States (left) and Colorado (right) from 2003-14 and the oil and gas worker fatality rate per 100 rigs over that time period.</p>
         <div style="width: 50%; float:left;">
             <h3>U.S. oil and gas worker fatalities by rig count</h3>
             <div style="height: 400px;" id="bar-fatalities-rate"></div>
@@ -31,15 +43,20 @@
             <h3>Colorado oil and gas worker fatalities by rig count</h3>
             <div style="height: 400px;" id="bar-fatalities-rate-colorado"></div>
         </div>
+        <p class="source">Source: Baker Hughes, Denver Post research</p>
     </div>
     <hr>
     <div>
         <h3>Colorado oil and gas worker fatality rate by OSHA oil and gas inspections</h3>
-        <div style="height: 400px;" id="bar-osha-inspections-fatalities"></div>
+        <p>The chart plots the number of OSHA inspections of oil and gas facilities in Colorado from 2003-14 by the rate of fatalities.
+            <div style="height: 400px;" id="bar-osha-inspections-fatalities"></div>
+            <p class="source">Bureau of Labor Statistics, Denver Post research</p>
     </div>
     <div>
         <h3>Hazardous occupations 2014</h3>
+        <p>In 2014, 181 workers in the mining, quarrying and natural gas extraction sector died on the job, making it the ninth most dangerous sector for workers in the country. With 874 on-the-job deaths, construction workers had the highest fatality count. However, when measured by rate per 100,000 workers, the mining, quarrying and natural gas extraction sector ranked second (14.1) behind only the agriculture, forestry, fishing and hunting sector (24.9).
         <div style="height: 400px;" id="bar-hazardous-occupations"></div>
+        <p class="source">Bureau of Labor Statistics</p>
     </div>
     <!-- Load d3.js and c3.js -->
     <script src="http://d3js.org/d3.v3.min.js " charset="utf-8 "></script>
@@ -165,25 +182,6 @@
             title: "Fatalities by Age "
         }
     });
-
-    /* setTimeout(function() {
-        chart.load({
-            columns: [
-                ["setosa ", 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.2, 0.1, 0.1, 0.2, 0.4, 0.4, 0.3, 0.3, 0.3, 0.2, 0.4, 0.2, 0.5, 0.2, 0.2, 0.4, 0.2, 0.2, 0.2, 0.2, 0.4, 0.1, 0.2, 0.2, 0.2, 0.2, 0.1, 0.2, 0.2, 0.3, 0.3, 0.2, 0.6, 0.4, 0.3, 0.2, 0.2, 0.2, 0.2],
-                ["versicolor ", 1.4, 1.5, 1.5, 1.3, 1.5, 1.3, 1.6, 1.0, 1.3, 1.4, 1.0, 1.5, 1.0, 1.4, 1.3, 1.4, 1.5, 1.0, 1.5, 1.1, 1.8, 1.3, 1.5, 1.2, 1.3, 1.4, 1.4, 1.7, 1.5, 1.0, 1.1, 1.0, 1.2, 1.6, 1.5, 1.6, 1.5, 1.3, 1.3, 1.3, 1.2, 1.4, 1.2, 1.0, 1.3, 1.2, 1.3, 1.3, 1.1, 1.3],
-                ["virginica ", 2.5, 1.9, 2.1, 1.8, 2.2, 2.1, 1.7, 1.8, 1.8, 2.5, 2.0, 1.9, 2.1, 2.0, 2.4, 2.3, 1.8, 2.2, 2.3, 1.5, 2.3, 2.0, 2.0, 1.8, 2.1, 1.8, 1.8, 1.8, 2.1, 1.6, 1.9, 2.0, 2.2, 1.5, 1.4, 2.3, 2.4, 1.8, 1.8, 2.1, 2.4, 2.3, 1.9, 2.3, 2.5, 2.3, 1.9, 2.0, 2.3, 1.8],
-            ]
-        });
-    }, 3500);
-
-    setTimeout(function() {
-        chart.unload({
-            ids: 'data1'
-        });
-        chart.unload({
-            ids: 'data2'
-        });
-    }, 5500); */
 
     var donutAge = c3.generate({
         bindto: '#donut-race',
@@ -402,72 +400,19 @@
         'Fatality rate per 100 rigs': '#000'
     });
     // ----- BAR CHART: HAZARDOUS OCCUPATIONS ----- //
-    /* var barHazardousOccupations = c3.generate({
-        bindto: '#bar-hazardous-occupations',
-        data: {
-            // x: 'x',
-            //        xFormat: '%Y%m%d', // 'xFormat' can be used as custom format of 'x'
-            columns: [
-                //    ['x', 'Construction', 'Transportation, warehousing', 'Agriculture, forestry, fishing, hunting', 'Government', 'Professional and business services', 'Manufacturing', 'Retail trade', 'Leisure and hospitality', 'Mining, quarrying, oil and gas extraction', 'Wholesale trade', 'Other', 'Educational and health services', 'Financial activities', 'Information', 'Utilities'],
-                //            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
-                ['Fatality count', 874, 735, 568, 428, 418, 341, 267, 207, 181, 179, 174, 144, 114, 32, 17],
-                ['Fatality rate', 9.5, 13.5, 24.9, 1.9, 2.6, 2.2, 1.8, 1.9, 14.1, 4.8, 2.6, 0.7, 1.2, 1.1, 1.7]
-            ],
-            types: {
-                'Fatality count': 'bar',
-                'Fatality rate': 'bar'
-            },
-            axes: {
-                'Fatality count': 'y',
-                'Fatality rate': 'y2'
-            }
-        },
-
-        grid: {
-            x: {
-                show: true
-            },
-            y: {
-                show: true
-            }
-        },
-        legend: {
-            position: 'inset'
-        },
-        axis: {
-            x: {
-                type: 'category',
-                categories: ['Construction', 'Transportation, warehousing', 'Agriculture, forestry, fishing, hunting', 'Government', 'Professional and business services', 'Manufacturing', 'Retail trade', 'Leisure and hospitality', 'Mining, quarrying, oil and gas extraction', 'Wholesale trade', 'Other', 'Educational and health services', 'Financial activities', 'Information', 'Utilities']
-            },
-
-            y: {
-                label: {
-                    text: 'Fatality count',
-                    position: 'outer-middle'
-                }
-            },
-            y2: {
-                show: true,
-                label: {
-                    text: 'Fatality rate',
-                    position: 'outer-middle'
-                }
-            }
-        }
-    });
-    barHazardousOccupations.data.colors({
-        'Fatality count': '#bbb',
-        'Fatality rate': '#990012'
-    }); */
-
     var barHazardousOccupations = c3.generate({
         bindto: '#bar-hazardous-occupations',
         data: {
             x: 'x',
             columns: [
+                // TOP 10 ONLY
+                ['x', 'Construction', 'Transportation, warehousing', 'Agriculture, forestry, fishing, hunting', 'Government', 'Professional and business services', 'Manufacturing', 'Retail trade', 'Leisure and hospitality', 'Mining, quarrying, oil and gas extraction', 'Wholesale trade'],
+                ['Fatality count', 874, 735, 568, 428, 418, 341, 267, 207, 181, 179, 174],
+                ['Fatality rate', 9.5, 13.5, 24.9, 1.9, 2.6, 2.2, 1.8, 1.9, 14.1, 4.8, 2.6]
+                /* ALL CATEGORIES LISTED
                 ['x', 'Construction', 'Transportation, warehousing', 'Agriculture, forestry, fishing, hunting', 'Government', 'Professional and business services', 'Manufacturing', 'Retail trade', 'Leisure and hospitality', 'Mining, quarrying, oil and gas extraction', 'Wholesale trade', 'Other', 'Educational and health services', 'Financial activities', 'Information', 'Utilities'],
                 ['Fatality count', 874, 735, 568, 428, 418, 341, 267, 207, 181, 179, 174, 144, 114, 32, 17],
-                ['Fatality rate', 9.5, 13.5, 24.9, 1.9, 2.6, 2.2, 1.8, 1.9, 14.1, 4.8, 2.6, 0.7, 1.2, 1.1, 1.7]
+                ['Fatality rate', 9.5, 13.5, 24.9, 1.9, 2.6, 2.2, 1.8, 1.9, 14.1, 4.8, 2.6, 0.7, 1.2, 1.1, 1.7] */
             ],
             type: 'bar',
             axes: {
@@ -494,7 +439,7 @@
                     'rotate': 40,
                     multiline: false
                 },
-            height: 0
+                height: 0
             },
 
             y: {
